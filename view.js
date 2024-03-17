@@ -3,7 +3,14 @@
 
 
 // ---- Display file structure ----
-
+//effective permissions call
+var permissions= define_new_effective_permissions('permissions1',add_info_col = true, which_permissions = null);
+//new user call
+var newuser= define_new_user_select_field('user', 'select user', on_user_change = function(selected_user){
+//hardcoding filepath
+$('#permissions1').attr('filepath','/C/presentation_documents/important_file.txt')
+$('#permissions1').attr('username', selected_user)
+});
 // (recursively) makes and returns an html element (wrapped in a jquery object) for a given file object
 function make_file_element(file_obj) {
     let file_hash = get_full_path(file_obj)
